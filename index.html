@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random String</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main">
+        <h1>Enter Value</h1>
+        <input type="number" id="stringLength" class="one">
+        <button onclick="generateRandomString()">Generate</button>
+        <p id="result"></p>
+    </div>
+    <script>
+        function generateRandomString() {
+            let stringLength = document.getElementById("stringLength").value;
+            stringLength = parseInt(stringLength);
+
+            const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            let randomString = '';
+
+            for (let i = 0; i < stringLength; i++){
+                const randomIndex = Math.floor(Math.random() * characters.length);
+                randomString += characters.charAt(randomIndex);
+            }
+            document.getElementById("result").innerHTML = `Random String: ${randomString}`;
+        }
+    </script>
+</body>
+</html>
